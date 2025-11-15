@@ -1,221 +1,197 @@
 [
   {
-    "doenca": "Gripe",
-    "especialista": "Clínico Geral",
-    "sintomas": [
-      "febre",
-      "dor de cabeça",
-      "dor muscular",
-      "tosse",
-      "congestão nasal"
-    ]
+    "doenca": "gripe",
+    "especialista": "clinico-geral",
+    "sintomas": ["febre", "dor-de-cabeca", "dor-muscular", "tosse", "congestao-nasal"]
   },
   {
-    "doenca": "Dengue",
-    "especialista": "Infectologista",
-    "sintomas": [
-      "febre alta",
-      "dor atrás dos olhos",
-      "dor muscular",
-      "manchas vermelhas na pele",
-      "cansaço"
-    ]
+    "doenca": "dengue",
+    "especialista": "infectologista",
+    "sintomas": ["febre-alta", "dor-atras-dos-olhos", "dor-muscular", "manchas-vermelhas-na-pele", "cansaco"]
   },
   {
-    "doenca": "COVID-19",
-    "especialista": "Infectologista",
-    "sintomas": [
-      "febre",
-      "tosse seca",
-      "cansaço",
-      "perda de olfato",
-      "dificuldade para respirar"
-    ]
+    "doenca": "covid19",
+    "especialista": "infectologista",
+    "sintomas": ["febre", "tosse-seca", "cansaco", "perda-de-olfato", "dificuldade-para-respirar"]
   },
   {
-    "doenca": "Diabetes tipo 2",
-    "especialista": "Endocrinologista",
-    "sintomas": [
-      "sede excessiva",
-      "urina frequente",
-      "visão embaçada",
-      "fome excessiva",
-      "cansaço"
-    ]
+    "doenca": "diabetes-tipo-2",
+    "especialista": "endocrinologista",
+    "sintomas": ["sede-excessiva", "urina-frequente", "visao-embacada", "fome-excessiva", "cansaco"]
   },
   {
-    "doenca": "Hipertensão",
-    "especialista": "Cardiologista",
-    "sintomas": [
-      "dor de cabeça",
-      "tontura",
-      "visão turva",
-      "falta de ar",
-      "dor no peito"
-    ]
+    "doenca": "hipertensao",
+    "especialista": "cardiologista",
+    "sintomas": ["dor-de-cabeca", "tontura", "visao-turva", "falta-de-ar", "dor-no-peito"]
   },
   {
-    "doenca": "Gastrite",
-    "especialista": "Gastroenterologista",
-    "sintomas": [
-      "dor abdominal",
-      "azia",
-      "náusea",
-      "sensação de estômago cheio",
-      "vômito"
-    ]
+    "doenca": "gastrite",
+    "especialista": "gastroenterologista",
+    "sintomas": ["dor-abdominal", "azia", "nausea", "sensacao-de-estomago-cheio", "vomito"]
   },
   {
-    "doenca": "Enxaqueca",
-    "especialista": "Neurologista",
-    "sintomas": [
-      "dor de cabeça intensa",
-      "sensibilidade à luz",
-      "náusea",
-      "vômito",
-      "alterações visuais"
-    ]
+    "doenca": "enxaqueca",
+    "especialista": "neurologista",
+    "sintomas": ["dor-de-cabeca-intensa", "sensibilidade-a-luz", "nausea", "vomito", "alteracoes-visuais"]
   },
   {
-    "doenca": "Apendicite",
-    "especialista": "Cirurgião Geral",
-    "sintomas": [
-      "dor abdominal intensa",
-      "náusea",
-      "vômito",
-      "febre",
-      "perda de apetite"
-    ]
+    "doenca": "apendicite",
+    "especialista": "cirurgiao-geral",
+    "sintomas": ["dor-abdominal-intensa", "nausea", "vomito", "febre", "perda-de-apetite"]
   },
   {
-    "doenca": "Asma",
-    "especialista": "Pneumologista",
-    "sintomas": [
-      "falta de ar",
-      "chiado no peito",
-      "tosse",
-      "opressão no peito",
-      "dificuldade para respirar"
-    ]
+    "doenca": "asma",
+    "especialista": "pneumologista",
+    "sintomas": ["falta-de-ar", "chiado-no-peito", "tosse", "opressao-no-peito", "dificuldade-para-respirar"]
   },
   {
-    "doenca": "Bronquite",
-    "especialista": "Pneumologista",
-    "sintomas": [
-      "tosse persistente",
-      "muco",
-      "falta de ar",
-      "cansaço",
-      "desconforto no peito"
-    ]
+    "doenca": "bronquite",
+    "especialista": "pneumologista",
+    "sintomas": ["tosse-persistente", "muco", "falta-de-ar", "cansaco", "desconforto-no-peito"]
   },
   {
-    "doenca": "Pneumonia",
-    "especialista": "Infectologista",
-    "sintomas": [
-      "febre alta",
-      "calafrios",
-      "tosse com catarro",
-      "dor no peito",
-      "falta de ar"
-    ]
+    "doenca": "pneumonia",
+    "especialista": "infectologista",
+    "sintomas": ["febre-alta", "calafrios", "tosse-com-catarro", "dor-no-peito", "falta-de-ar"]
   },
   {
-    "doenca": "Infecção urinária",
-    "especialista": "Urologista",
-    "sintomas": [
-      "dor ao urinar",
-      "urgência urinária",
-      "urina turva",
-      "dor abdominal",
-      "febre"
-    ]
+    "doenca": "infeccao-urinaria",
+    "especialista": "urologista",
+    "sintomas": ["dor-ao-urinar", "urgencia-urinaria", "urina-turva", "dor-abdominal", "febre"]
   },
   {
-    "doenca": "Cistite",
-    "especialista": "Urologista",
-    "sintomas": [
-      "urgência urinária",
-      "dor ao urinar",
-      "sangue na urina",
-      "dor pélvica",
-      "febre baixa"
-    ]
+    "doenca": "cistite",
+    "especialista": "urologista",
+    "sintomas": ["urgencia-urinaria", "dor-ao-urinar", "sangue-na-urina", "dor-pelvica", "febre-baixa"]
   },
   {
-    "doenca": "Artrite",
-    "especialista": "Reumatologista",
-    "sintomas": [
-      "dor nas articulações",
-      "inchaço",
-      "rigidez matinal",
-      "vermelhidão",
-      "limitação de movimento"
-    ]
+    "doenca": "artrite",
+    "especialista": "reumatologista",
+    "sintomas": ["dor-nas-articulacoes", "inchaco", "rigidez-matinal", "vermelhidao", "limitacao-de-movimento"]
   },
   {
-    "doenca": "Depressão",
-    "especialista": "Psiquiatra",
-    "sintomas": [
-      "tristeza persistente",
-      "perda de interesse",
-      "fadiga",
-      "alterações no sono",
-      "dificuldade de concentração"
-    ]
+    "doenca": "depressao",
+    "especialista": "psiquiatra",
+    "sintomas": ["tristeza-persistente", "perda-de-interesse", "fadiga", "alteracoes-no-sono", "dificuldade-de-concentracao"]
   },
   {
-    "doenca": "Avc",
-    "especialista": "Neurologista",
-    "sintomas": [
-      "paralisia súbita",
-      "boca torta",
-      "perda de visão",
-      "alterações na fala"
-    ]
+    "doenca": "avc",
+    "especialista": "neurologista",
+    "sintomas": ["paralisia-subita", "boca-torta", "perda-de-visao", "alteracoes-na-fala"]
   },
   {
-    "doenca": "Fraturas",
-    "especialista": "Ortopedista",
-    "sintomas": [
-      "inchaço",
-      "sensibilidade ao toque",
-      "dificuldade de movimentação",
-      "incapacidade de movimentar o membro",
-      "fraturas visíveis",
-      "dormência",
-      "formigamento"
-    ]
-  },
-  {"doenca": "Virose",
-    "especialista": "Clinico Geral",
-    "sintomas": [
-      "náusea",
-      "Vomito",
-      "diarreia",
-      "febre",
-      "mal-estar"
-    ]
+    "doenca": "fraturas",
+    "especialista": "ortopedista",
+    "sintomas": ["inchaco", "sensibilidade-ao-toque", "dificuldade-de-movimentacao", "incapacidade-de-movimentar-o-membro", "fraturas-visiveis", "dormencia", "formigamento"]
   },
   {
-  "doenca": "Candidiase",
-  "especialista": "Ginecologista",
-  "sintomas": [
-    "coceira intensa na região íntima",
-    "corrimento branco e espesso",
-    "vermelhidão e inchaço na região genital",
-    "dor ou ardência ao urinar",
-    "desconforto durante a relação sexual"
-  ]
-},
-{
-  "doenca": "Câncer de Próstata",
-  "especialista": "Urologista",
-  "sintomas": [
-    "dificuldade para urinar",
-    "jato urinário fraco ou interrompido",
-    "urinar com frequência, especialmente à noite",
-    "presença de sangue na urina ou no sêmen"
-  ]
-}
+    "doenca": "virose",
+    "especialista": "clinico-geral",
+    "sintomas": ["nausea", "vomito", "diarreia", "febre", "mal-estar"]
+  },
+  {
+    "doenca": "candidiase",
+    "especialista": "ginecologista",
+    "sintomas": ["coceira-intensa-na-regiao-intima", "corrimento-branco-e-espesso", "vermelhidao-e-inchaco-na-regiao-genital", "dor-ou-ardencia-ao-urinar", "desconforto-durante-a-relacao-sexual"]
+  },
+  {
+    "doenca": "cancer-de-prostata",
+    "especialista": "urologista",
+    "sintomas": ["dificuldade-para-urinar", "jato-urinario-fraco-ou-interrompido", "urinar-com-frequencia-especialmente-a-noite", "presenca-de-sangue-na-urina-ou-no-semen"]
+  },
+  {
+        "doenca": "alzheimer",
+        "especialista": "neurologista",
+        "sintomas": ["perda-de-memoria", "confusao-mental", "dificuldade-em-tarefas", "mudancas-de-humor", "comportamento-inadequado"]
+    },
+    {
+        "doenca": "dpoc",
+        "especialista": "pneumologista",
+        "sintomas": ["tosse-cronica", "producao-de-muco", "falta-de-ar", "chiado-no-peito"]
+    },
+    {
+        "doenca": "doenca-renal-cronica",
+        "especialista": "nefrologista",
+        "sintomas": ["fadiga", "inchaco", "alteracoes-na-urina", "nauseas", "confusao-mental"]
+    },
+    {
+        "doenca": "cancer-de-mama",
+        "especialista": "oncologista",
+        "sintomas": ["nodulo-na-mama", "alteracao-no-formato-da-mama", "secrecao-no-mamilo", "pele-com-casca-de-laranja"]
+    },
+    {
+        "doenca": "cancer-de-pulmao",
+        "especialista": "oncologista",
+        "sintomas": ["tosse-persistente", "dor-no-peito", "perda-de-peso", "falta-de-ar", "rouquidao"]
+    },
+    {
+        "doenca": "cancer-de-colo-do-utero",
+        "especialista": "ginecologista",
+        "sintomas": ["sangramento-vaginal-anormal", "dor-pelvica", "dor-na-relacao", "secrecao-vaginal-incomum"]
+    },
+    {
+        "doenca": "cancer-de-pele",
+        "especialista": "dermatologista",
+        "sintomas": ["manchas-na-pele", "feridas-que-nao-cicatrizam", "alteracao-em-pintas", "lesoes-com-bordas-irregulares"]
+    },
+    {
+        "doenca": "cancer-de-estomago",
+        "especialista": "gastroenterologista",
+        "sintomas": ["dor-abdominal", "perda-de-apetite", "nauseas", "perda-de-peso", "sensacao-de-estomago-cheio"]
+    },
+    {
+        "doenca": "cancer-colorretal",
+        "especialista": "gastroenterologista",
+        "sintomas": ["sangue-nas-fezes", "dor-abdominal", "perda-de-peso", "alteracoes-no-habito-intestinal"]
+    },
+     {
+    "doenca": "artrose-no-joelho",
+    "especialista": "ortopedista",
+    "sintomas": ["dor-no-joelho", "rigidez", "incomodidade-ao-andar", "inchaco", "estalos-no-joelho"]
+  },
+  {
+    "doenca": "bursite-no-joelho",
+    "especialista": "ortopedista",
+    "sintomas": ["dor-no-joelho", "inchaco-localizado", "vermelhidao", "dificuldade-de-flexao", "sensibilidade-ao-toque"]
+  },
+  {
+    "doenca": "tendinite-patelar",
+    "especialista": "ortopedista",
+    "sintomas": ["dor-na-parte-frontal-do-joelho", "sensibilidade-abaixo-da-patela", "rigidez", "inchaco", "dificuldade-para-correr-ou-agachar"]
+  },
+  {
+    "doenca": "condromalacia-patelar",
+    "especialista": "ortopedista",
+    "sintomas": ["dor-na-parte-anterior-do-joelho", "estalos-ao-dobrar-o-joelho", "sensacao-de-desgaste", "dor-ao-subir-escadas", "rigidez"]
+  },
+  {
+    "doenca": "lesao-do-ligamento-cruzado-anterior",
+    "especialista": "ortopedista",
+    "sintomas": ["dor-aguda-no-joelho", "inchaco-imediato", "instabilidade-no-joelho", "dificuldade-de-apoiar-a-perna", "sensacao-de-estalo"]
+  },
+  {
+    "doenca": "lesao-do-menisco",
+    "especialista": "ortopedista",
+    "sintomas": ["dor-no-joelho", "inchaco", "travamento-da-articulacao", "sensacao-de-estalo", "rigidez"]
+  },
+  {
+    "doenca": "gota-no-joelho",
+    "especialista": "reumatologista",
+    "sintomas": ["dor-intensa-no-joelho", "vermelhidao", "inchaco", "aumento-da-temperatura-local", "mobilidade-reduzida"]
+  },
+  {
+    "doenca": "artrite-reumatoide-no-joelho",
+    "especialista": "reumatologista",
+    "sintomas": ["dor-cronica-no-joelho", "rigidez-matinal", "inchaco", "calor-local", "fadiga"]
+  },
+  {
+    "doenca": "cisto-de-baker",
+    "especialista": "ortopedista",
+    "sintomas": ["dor-na-parte-de-tras-do-joelho", "caroco-visivel", "rigidez", "inchaco", "sensacao-de-pressao"]
+  },
+  {
+    "doenca": "osteocondrite-dissecante",
+    "especialista": "ortopedista",
+    "sintomas": ["dor-no-joelho", "sensacao-de-corpo-solto", "travamento", "inchaco", "dificuldade-de-movimento"]
+  }
 ]

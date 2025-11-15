@@ -8,6 +8,7 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
+from utils.normalize import normalizar
 
 # Caminhos
 JSON_BASE = "dados/doencas_sintomas_especialistas_pt.json"
@@ -25,7 +26,7 @@ especialistas_dict = {}
 for item in dados_base:
     doenca = item["doenca"]
     especialista = item.get("especialista", "Clínico Geral")
-    especialistas_dict[doenca] = especialista
+    especialistas_dict[normalizar(doenca)] = normalizar(especialista)
 
     for sintoma in item["sintomas"]:
         linhas.append({"symptom": sintoma.lower().strip(), "diagnosis": doenca})
@@ -44,8 +45,9 @@ if os.path.exists(JSON_CORRECOES):
     if "sintomas" in df_corr.columns and "correcao" in df_corr.columns:
         df_corr = df_corr[["sintomas", "correcao"]]
         df_corr.columns = ["symptom", "diagnosis"]
-        df_corr["symptom"] = df_corr["symptom"].str.lower().str.strip()
-        df_corr["diagnosis"] = df_corr["diagnosis"].str.strip()
+        df_corr["symptom"] = df_corr["symptom"].apply(normalizar)
+        df_corr["diagnosis"] = df_corr["diagnosis"].apply(normalizar)
+
         linhas.extend(df_corr.to_dict("records"))
         print(f"✅ Correções aplicadas: {len(df_corr)} registros")
     else:

@@ -5,6 +5,8 @@ import subprocess
 import joblib
 from flask import Flask, jsonify, render_template, request
 
+from utils.normalize import normalizar
+
 app = Flask(__name__)
 
 
@@ -12,7 +14,8 @@ app = Flask(__name__)
 def recarregar_modelo():
     global modelo_doenca
     global especialistas_dict
-    modelo_doenca = joblib.load("modelo/modelo_doenca.pkl")
+
+    modelo_doenca = joblib.load("modelo/modelo_doenca.pkl")  # Pipeline com vectorizer
     with open("modelo/especialistas.json", "r", encoding="utf-8") as f:
         especialistas_dict = json.load(f)
 
@@ -30,17 +33,18 @@ def index():
         sintomas = request.form["sintomas"]
         correcao = request.form.get("correcao")
 
-        sintomas_tratado = sintomas.lower().strip()
+        sintomas_tratado = normalizar(sintomas)
         doenca_pt = modelo_doenca.predict([sintomas_tratado])[0]
         especialista = especialistas_dict.get(doenca_pt, "Clínico Geral")
 
-        # Se houver correção do usuário
         if correcao and correcao.strip():
-            correcao = correcao.strip()
-            novo_registro = {"sintomas": sintomas, "correcao": correcao}
+            correcao = normalizar(correcao)
+            novo_registro = {
+                "sintomas": sintomas_tratado,
+                "correcao": correcao
+            }
             caminho_corrigido = "dados/correcoes_usuario.json"
 
-            # Salva a correção
             if os.path.exists(caminho_corrigido):
                 with open(caminho_corrigido, "r", encoding="utf-8") as f:
                     dados_existentes = json.load(f)
@@ -52,7 +56,6 @@ def index():
             with open(caminho_corrigido, "w", encoding="utf-8") as f:
                 json.dump(dados_existentes, f, ensure_ascii=False, indent=2)
 
-            # Atualiza visualmente com a correção inserida
             doenca_pt = correcao
             especialista = especialistas_dict.get(doenca_pt, "Clínico Geral")
 

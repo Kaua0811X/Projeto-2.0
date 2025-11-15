@@ -10,5 +10,17 @@
   {
     "sintomas": "sede e fome excessivas, vontade frequente de urinar, perda de peso sem causa aparente, cansaço e fadiga, e visão turva",
     "correcao": "Diabetes"
+  },
+  {
+    "sintomas": "mal-estar",
+    "correcao": "mal-estar"
+  },
+  {
+    "sintomas": "mal-estar",
+    "correcao": "mal-estar"
+  },
+  {
+    "sintomas": "boca torta",
+    "correcao": "perda de visão"
   }
 ]
