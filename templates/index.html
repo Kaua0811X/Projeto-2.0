@@ -1,297 +1,353 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HealthAI — Triagem Médica</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg-1: #f5f9ff;
-      --bg-2: #e6f2ff;
-      --accent: #0066b3;
-      --accent-2: #0090ff;
-      --muted: #627d98;
-      --card: #ffffff;
-      --radius: 12px;
-      --glass: rgba(255,255,255,0.6);
-      --shadow: 0 6px 18px rgba(6,24,64,0.12);
-      font-size: 16px;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>HealthAI — Triagem Médica</title>
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
-      color:#07324a;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    header{
-      background: linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:white;
-      padding:18px 20px;
-      display:flex;
-      align-items:center;
-      gap:16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    }
-    .brand{
-      display:flex;align-items:center;gap:12px
-    }
-    .logo{
-      width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.14);display:grid;place-items:center;font-weight:700
-    }
-    .title{font-size:18px;font-weight:600}
-    .subtitle{font-size:12px;opacity:0.95}
+<style>
 
-    main{
-      flex:1;
-      display:grid;
-      grid-template-columns: 1fr; /* mobile first */
-      gap:28px;
-      padding:32px;
-      align-items:start;
-      justify-items:center;
-    }
+/* -------------- TEMA BRANCO COM DETALHES AZUIS --------------- */
+:root{
+    --bg-1:#ffffff;       /* Fundo principal branco */
+    --bg-2:#f5faff;       /* Fundo degradê branco/azulado */
+    --card:#e6f0ff;       /* Cartões azul bem claro */
+    --glass:rgba(230,240,255,0.3); /* efeito glass azul claro */
 
-    .container{
-      width:100%;
-      max-width:1100px;
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:28px;
-      align-items:start;
-    }
+    --txt:#001f3f;        /* Texto principal azul escuro */
+    --txt-muted:#0d47a1;  /* Texto secundário azul */
 
-    /* left: form + info */
-    .panel{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow:var(--shadow);
-    }
+    --accent:#0ea5e9;     /* Azul principal (botões, highlights) */
+    --accent-2:#3b82f6;   /* Azul secundário para gradiente e hover */
 
-    .hero{
-      display:flex;flex-direction:column;gap:8px
-    }
-    .hero h1{margin:0;font-size:20px}
-    .hero p{margin:0;color:var(--muted);font-size:14px}
+    --radius:18px;
+    --shadow:0 0 22px rgba(14,165,233,0.25); /* sombra azul */
+    --border-glow:0 0 16px rgba(14,165,233,0.4); /* glow azul */
+}
 
-    form{display:flex;flex-direction:column;gap:12px}
-    label{font-weight:600;font-size:14px}
-    textarea{
-      min-height:140px;padding:14px;border-radius:10px;border:1px solid #e6eef9;background:linear-gradient(180deg,#fff,#fbfdff);
-      resize:vertical;font-size:15px;color:#053047;outline:none;box-shadow:inset 0 1px 0 rgba(0,0,0,0.02)
-    }
-    textarea:focus{box-shadow:0 6px 20px rgba(0,144,255,0.12);border-color:var(--accent-2)}
+*{box-sizing:border-box;}
+html, body { height:100%; }
 
-    .controls{display:flex;gap:12px;align-items:center}
-    .btn{
-      padding:10px 16px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(0,116,204,0.14)
-    }
-    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(5,50,90,0.08)}
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(160deg, var(--bg-1), var(--bg-2));
+    color:var(--txt);
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+}
 
-    /* right: results */
-    .aside{position:sticky;top:24px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.9),var(--glass));padding:18px;border-radius:12px;box-shadow:var(--shadow)}
-    .card h3{margin:0 0 8px 0}
-    .meta{font-size:13px;color:var(--muted)}
+/* ------------ HEADER --------------- */
+header{
+    padding:24px 32px;
+    display:flex;
+    align-items:center;
+    background:rgba(14,165,233,0.1);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(14,165,233,0.2);
+    box-shadow:var(--shadow);
+}
 
-    .result{margin-top:12px;padding:12px;border-radius:10px;border:1px dashed rgba(0,102,179,0.08);background:linear-gradient(180deg,#f8fcff,#ffffff)}
-    .result b{color:var(--accent)}
+.logo{
+    width:56px;
+    height:56px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    font-weight:700;
+    font-size:20px;
+    background:linear-gradient(140deg, var(--accent), var(--accent-2));
+    color:#ffffff;
+}
 
-    .suggestions{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-    .chip{padding:8px;border-radius:999px;border:1px solid rgba(0,0,0,0.04);background:#fff;font-size:13px}
+.title{ font-size:22px; font-weight:600; }
+.subtitle{ font-size:12px; color:var(--txt-muted); }
 
-    footer{padding:18px;text-align:center;color:var(--muted);font-size:13px}
+/* ------------ LAYOUT --------------- */
+main{
+    flex:1;
+    padding:40px;
+    display:flex;
+    justify-content:center;
+}
 
-    /* smaller screens */
-    @media (max-width:980px){
-      .container{grid-template-columns:1fr}
-      .aside{position:relative;top:0}
-    }
+.container{
+    width:100%;
+    max-width:1150px;
+    display:grid;
+    gap:38px;
+    grid-template-columns: 1fr 420px;
+}
 
-    /* subtle animation */
-    .fade-in{animation:fadeIn .36s ease both}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* ------------ PAINEL PRINCIPAL --------------- */
+.panel{
+    background:var(--glass);
+    border:1px solid rgba(14,165,233,0.2);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:28px;
+    backdrop-filter:blur(18px);
+    animation:fadeUp .4s ease both;
+}
 
-    /* accessibility focus */
-    .btn:focus, textarea:focus{outline:3px solid rgba(0,144,255,0.12);outline-offset:2px}
-  </style>
+.hero h1{ margin:0; font-size:26px; }
+.hero p{ color:var(--txt-muted); margin-top:4px; }
+
+/* ---- TEXTAREA ---- */
+textarea{
+    width:100%;
+    min-height:160px;
+    padding:16px;
+    border-radius:14px;
+    border:1px solid rgba(14,165,233,0.4);
+    background:rgba(230,240,255,0.2);
+    backdrop-filter:blur(8px);
+    color:var(--txt);
+    font-size:15px;
+    resize:vertical;
+    transition:.25s;
+}
+
+textarea:focus{
+    border-color:var(--accent-2);
+    box-shadow:0 0 16px rgba(14,165,233,0.3);
+    outline:none;
+}
+
+/* ------------- BOTÕES --------------- */
+.btn{
+    padding:12px 20px;
+    border-radius:12px;
+    border:0;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.25s;
+}
+
+.btn.primary{
+    background:linear-gradient(90deg, var(--accent), var(--accent-2));
+    color:#ffffff;
+    box-shadow:var(--border-glow);
+}
+
+.btn.primary:hover{
+    transform:scale(1.05);
+    filter:brightness(1.15);
+}
+
+.btn.secondary{
+    background:transparent;
+    border:1px solid rgba(14,165,233,0.4);
+    color:var(--txt-muted);
+}
+
+.btn.secondary:hover{
+    transform:scale(1.05);
+    border-color:var(--accent-2);
+}
+
+/* ------------ CARD DE RESULTADO --------------- */
+.card{
+    background:var(--glass);
+    border-radius:var(--radius);
+    padding:22px;
+    border:1px solid rgba(14,165,233,0.2);
+    backdrop-filter:blur(16px);
+    box-shadow:var(--shadow);
+}
+
+.result{
+    margin-top:12px;
+    padding:16px;
+    border-radius:14px;
+    border:1px solid rgba(14,165,233,0.3);
+    background:rgba(230,240,255,0.15);
+    box-shadow:var(--border-glow);
+}
+
+.chip{
+    padding:10px 14px;
+    border-radius:30px;
+    background:rgba(14,165,233,0.15);
+    font-size:13px;
+    border:1px solid rgba(14,165,233,0.4);
+}
+
+/* ------------- FOOTER --------------- */
+footer{
+    padding:20px;
+    font-size:13px;
+    color:var(--txt-muted);
+    text-align:center;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeUp{
+    from { opacity:0; transform:translateY(25px); }
+    to   { opacity:1; transform:none; }
+}
+
+/* RESPONSIVO */
+@media(max-width:980px){
+    .container{ grid-template-columns:1fr; }
+}
+
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="brand">
-      <div class="logo" aria-hidden>HA</div>
-      <div>
-        <div class="title">HealthAI</div>
-        <div class="subtitle">Triagem Inteligente — Resultados rápidos</div>
-      </div>
-    </div>
-  </header>
 
-  <main>
-    <div class="container">
-      <section class="panel fade-in" aria-labelledby="formTitle">
-        <div class="hero">
-          <h1 id="formTitle">Descreva seus sintomas</h1>
-          <p>Digite os sintomas com o máximo de detalhes possível — por exemplo: "dor de cabeça, febre 38°C, náusea".</p>
+<header>
+    <div class="brand" style="display:flex; align-items:center; gap:14px;">
+        <div class="logo">HA</div>
+        <div>
+            <div class="title">HealthAI</div>
+            <div class="subtitle">Triagem Inteligente — Modo Futurista</div>
         </div>
+    </div>
+</header>
 
-        <form id="triageForm" autocomplete="on" novalidate>
-          <div>
-            <label for="sintomas">Sintomas</label>
-            <textarea id="sintomas" name="sintomas" placeholder="Ex.: tosse seca, febre 38, dor no peito ao respirar" required aria-required="true"></textarea>
-          </div>
+<main>
+<div class="container">
 
-          <div class="controls">
-            <button type="submit" class="btn" id="analyzeBtn">Analisar</button>
+<section class="panel">
+
+    <div class="hero">
+        <h1>Descreva seus sintomas</h1>
+        <p>Digite com detalhes para uma análise mais precisa.</p>
+    </div>
+
+    <form id="triageForm">
+        <label for="sintomas">Sintomas</label>
+        <textarea id="sintomas" placeholder="Ex.: Febre 38°C, tosse seca e dor ao respirar..."></textarea>
+
+        <div style="display:flex; gap:12px; margin-top:10px; align-items:center;">
+            <button type="submit" class="btn primary" id="analyzeBtn">Analisar</button>
             <button type="button" class="btn secondary" id="clearBtn">Limpar</button>
-            <div style="margin-left:auto;color:var(--muted);font-size:13px">Modelo: <strong>v1.0</strong></div>
-          </div>
-
-          <div id="feedback" role="status" aria-live="polite" style="margin-top:6px;color:var(--muted);font-size:13px"></div>
-
-        </form>
-
-        <div style="margin-top:18px;color:var(--muted);font-size:13px">
-          <strong>Dica:</strong> não insira dados sensíveis (CPF/RG). Sempre confirme com um profissional de saúde.
+            <span style="margin-left:auto; color:var(--txt-muted); font-size:13px;">
+               
+            </span>
         </div>
-      </section>
 
-      <aside class="aside">
-        <div class="card fade-in">
-          <h3>Resultado da Triagem</h3>
-          <div class="meta">Status: <span id="statusMeta">Aguardando análise</span></div>
+        <div id="feedback" style="margin-top:8px; color:var(--txt-muted); font-size:13px;"></div>
+    </form>
 
-          <div id="resultBox" class="result" hidden>
-            <p><strong>Sintomas:</strong> <span id="outSymptoms"></span></p>
-            <p><strong>Possível condição:</strong> <span id="outCondition"></span></p>
-            <p><strong>Especialista recomendado:</strong> <span id="outSpecialist"></span></p>
-            <div class="suggestions" id="outAdvice"></div>
-          </div>
+</section>
 
-          <div id="exampleBox" style="margin-top:12px;color:var(--muted);font-size:13px">
-            <strong>Exemplos rápidos:</strong>
-            <ul style="margin:8px 0 0 18px;padding:0">
-              <li>"dor de garganta, febre" → Otorrino / Clínico</li>
-              <li>"dor no peito, sudorese" → Procure emergência</li>
-            </ul>
-          </div>
-        </div>
-      </aside>
+<aside class="card">
+
+    <h3 style="margin-top:0;">Resultado da Triagem</h3>
+    <p class="meta">Status: <span id="statusMeta">Aguardando análise</span></p>
+
+    <div id="resultBox" class="result" hidden>
+        <p><strong>Sintomas:</strong> <span id="outSymptoms"></span></p>
+        <p><strong>Possível condição:</strong> <span id="outCondition"></span></p>
+        <p><strong>Especialista recomendado:</strong> <span id="outSpecialist"></span></p>
+        <div id="outAdvice" class="suggestions" style="margin-top:14px;"></div>
     </div>
-  </main>
 
-  <footer>
-    HealthAI • Ferramenta de triagem — não substitui diagnóstico médico. Contato: contato@healthai.com
-  </footer>
+</aside>
 
-  <script>
-    // Front-end only mock triage. Replace with API call for production.
-    const form = document.getElementById('triageForm');
-    const sintomas = document.getElementById('sintomas');
-    const feedback = document.getElementById('feedback');
-    const statusMeta = document.getElementById('statusMeta');
-    const resultBox = document.getElementById('resultBox');
-    const outSymptoms = document.getElementById('outSymptoms');
-    const outCondition = document.getElementById('outCondition');
-    const outSpecialist = document.getElementById('outSpecialist');
-    const outAdvice = document.getElementById('outAdvice');
-    const analyzeBtn = document.getElementById('analyzeBtn');
-    const clearBtn = document.getElementById('clearBtn');
+</div>
+</main>
 
-    function sanitize(text){
-      return text.replace(/</g,'&lt;').replace(/>/g,'&gt;').trim();
+<footer>
+    HealthAI • Triagem Inteligente 2025 — Não substitui um médico.
+</footer>
+
+
+<script>
+
+/* --- LÓGICA DA TRIAGEM --- */
+
+const form = document.getElementById('triageForm');
+const sintomas = document.getElementById('sintomas');
+const feedback = document.getElementById('feedback');
+const statusMeta = document.getElementById('statusMeta');
+const resultBox = document.getElementById('resultBox');
+const outSymptoms = document.getElementById('outSymptoms');
+const outCondition = document.getElementById('outCondition');
+const outSpecialist = document.getElementById('outSpecialist');
+const outAdvice = document.getElementById('outAdvice');
+const analyzeBtn = document.getElementById('analyzeBtn');
+const clearBtn = document.getElementById('clearBtn');
+
+function sanitize(t){
+    return t.replace(/</g,'&lt;').replace(/>/g,'&gt;').trim();
+}
+
+function mockTriage(text){
+    const t = text.toLowerCase();
+    const r = { condition:"Não determinado", specialist:"Clínico Geral", advice:[] };
+
+    if(!t) return r;
+
+    if(/dor no peito|sudorese|pressão/.test(t)){
+        r.condition = "Possível emergência cardíaca";
+        r.specialist = "Pronto Socorro";
+        r.advice.push("Procure atendimento IMEDIATO.");
+    }
+    else if(/febre|tosse/.test(t)){
+        r.condition = "Infecção respiratória";
+        r.specialist = "Clínico / Pneumo";
+        r.advice.push("Hidratação e avaliação clínica.");
+    }
+    else {
+        r.condition = "Inespecífico";
+        r.specialist = "Clínico Geral";
+        r.advice.push("Descreva mais detalhes.");
     }
 
-    function mockTriage(text){
-      // very simple keyword matching. In production, call backend ML model.
-      const t = text.toLowerCase();
-      const r = { condition: 'Não determinado', specialist: 'Clínico Geral', advice: [] };
-      if(!t) return r;
-      if(/dor no peito|pressão no peito|aperto no peito|sudorese/.test(t)){
-        r.condition = 'Possível problema cardíaco / emergência';
-        r.specialist = 'Pronto Socorro / Cardiologia';
-        r.advice.push('Procure atendimento de emergência imediatamente.');
-      } else if(/febre|calafrio|temperatura/.test(t) && /tosse|garganta/.test(t)){
-        r.condition = 'Infecção respiratória (possível viral/bacteriana)';
-        r.specialist = 'Clínico Geral / Pneumologia';
-        r.advice.push('Hidratação e avaliação clínica.');
-      } else if(/dor de cabeça|cefaleia/.test(t) && /náusea|vômito/.test(t)){
-        r.condition = 'Enxaqueca / Cefaleia severa';
-        r.specialist = 'Neurologia';
-        r.advice.push('Evitar luz forte e procurar avaliação médica se persistir.');
-      } else if(/tosse seca|tosse/.test(t) && !/sangue|hemoptise/.test(t)){
-        r.condition = 'Tosse — monitorar';
-        r.specialist = 'Clínico Geral / Pneumologia';
-        r.advice.push('Se persistir por mais de 7 dias, consulte um médico.');
-      } else if(/dor abdominal|dor no abdome|náusea/.test(t)){
-        r.condition = 'Sintomas gastrintestinais';
-        r.specialist = 'Gastroenterologia';
-        r.advice.push('Evitar alimentos irritantes e procurar avaliação se houver febre ou dor intensa.');
-      } else if(/dor de garganta|garganta inflamada/.test(t)){
-        r.condition = 'Faringite / Amigdalite';
-        r.specialist = 'Otorrinolaringologia';
-        r.advice.push('Gargarejo com solução morna e avaliação clínica.');
-      } else {
-        r.condition = 'Sintomas inespecíficos';
-        r.specialist = 'Clínico Geral';
-        r.advice.push('Descrever mais detalhes (tempo de início, intensidade, febre, medicações).');
-      }
-      return r;
-    }
+    return r;
+}
 
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      const text = sanitize(sintomas.value);
-      feedback.textContent = '';
-      if(!text){
-        feedback.textContent = 'Por favor descreva os sintomas antes de analisar.';
-        sintomas.focus();
+form.addEventListener("submit", e =>{
+    e.preventDefault();
+
+    const text = sanitize(sintomas.value);
+    if(!text){
+        feedback.textContent = "Descreva os sintomas antes de analisar.";
         return;
-      }
+    }
 
-      analyzeBtn.disabled = true;
-      analyzeBtn.textContent = 'Analisando...';
-      statusMeta.textContent = 'Analisando';
+    analyzeBtn.textContent = "Analisando...";
+    analyzeBtn.disabled = true;
+    statusMeta.textContent = "Analisando...";
 
-      // simulate network latency
-      setTimeout(()=>{
-        const triage = mockTriage(text);
+    setTimeout(()=>{
+        const r = mockTriage(text);
+
         outSymptoms.textContent = text;
-        outCondition.textContent = triage.condition;
-        outSpecialist.textContent = triage.specialist;
-        outAdvice.innerHTML = '';
-        triage.advice.forEach(a => {
-          const el = document.createElement('div'); el.className='chip'; el.textContent = a; outAdvice.appendChild(el);
+        outCondition.textContent = r.condition;
+        outSpecialist.textContent = r.specialist;
+
+        outAdvice.innerHTML = "";
+        r.advice.forEach(a =>{
+            const c = document.createElement("div");
+            c.className = "chip";
+            c.textContent = a;
+            outAdvice.appendChild(c);
         });
+
         resultBox.hidden = false;
-        statusMeta.textContent = 'Concluído';
+        statusMeta.textContent = "Concluído";
+        analyzeBtn.textContent = "Analisar";
         analyzeBtn.disabled = false;
-        analyzeBtn.textContent = 'Analisar';
-      }, 700);
-    });
 
-    clearBtn.addEventListener('click', ()=>{
-      sintomas.value = '';
-      resultBox.hidden = true;
-      statusMeta.textContent = 'Aguardando análise';
-      feedback.textContent = '';
-      sintomas.focus();
-    });
+    }, 700);
+});
 
-    // keyboard shortcut: Ctrl+Enter to submit
-    sintomas.addEventListener('keydown', (e)=>{
-      if(e.ctrlKey && e.key === 'Enter') form.dispatchEvent(new Event('submit'));
-    });
-  </script>
+clearBtn.addEventListener("click", ()=>{
+    sintomas.value = "";
+    feedback.textContent = "";
+    resultBox.hidden = true;
+    statusMeta.textContent = "Aguardando análise";
+});
+
+</script>
+
 </body>
 </html>
